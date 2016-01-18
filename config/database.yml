@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: use_cap_deploy_production
-  username: use_cap_deploy
+  username: root
   password: ''
