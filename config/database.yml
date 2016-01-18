@@ -51,4 +51,4 @@ production:
   <<: *default
   database: use_cap_deploy_production
   username: use_cap_deploy
-  password: <%= ENV['USE_CAP_DEPLOY_DATABASE_PASSWORD'] %>
+  password: ''
