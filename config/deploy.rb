@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'use_cap_deploy'
-set :repo_url, 'git@github.com:although2013/use_cap_deploy.git'
+set :repo_url, 'https://github.com/although2013/use_cap_deploy.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

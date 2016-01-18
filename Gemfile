@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development do
   gem 'capistrano-rails'
   gem 'capistrano'
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 group :development, :test do
