@@ -1,0 +1,6 @@
+This is Home page
+
+<% if !current_user %>
+  <%= link_to '注册', new_user_path %>
+  <%= link_to '登录', new_session_path %>
+<% end -%>

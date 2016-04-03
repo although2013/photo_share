@@ -9,8 +9,6 @@
     <br><br>
     <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-
-  <%=  %>
 </div>
 
 
@@ -18,20 +16,19 @@
 
 
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $(".photo-like").bind("click",function(){
-        var that = this;
-        $.ajax({
-          url: '/likes',
-          type: 'post',
-          data: {type: this.dataset.type, id: this.dataset.id}
-        }).done(function(resp){
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".photo-like").bind("click",function(){
+      $.ajax({
+        url: '/likes',
+        type: 'post',
+        data: {type: this.dataset.type, id: this.dataset.id}
+      }).done(function(resp){
 
-          $('#l-' + resp.type + resp.id).text(resp.text)
-          $('#like-count').text("Like Count " + resp.count)
+        $('#l-' + resp.type + resp.id).text(resp.text)
+        $('#like-count').text("Like Count " + resp.count)
 
-        });
-      })
-    })
-  </script>
+      });
+    });
+  });
+</script>
