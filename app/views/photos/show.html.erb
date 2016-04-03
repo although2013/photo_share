@@ -1,0 +1,8 @@
+<%= render 'shared/flash_error_messages', object: @photo %>
+<div align="center" class="img-detail">
+  <%= image_tag @photo.photo_url.to_s, class:"img-responsive" %>
+  <% if current_user?(@user) %>
+    <br><br>
+    <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

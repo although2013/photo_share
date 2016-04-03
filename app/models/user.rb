@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   has_secure_password
 
-  has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
 
   def User.new_remember_token

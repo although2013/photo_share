@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :sign_in_user, only: [:show, :edit, :update]
-  before_action :set_user, only: [:show, :edit, :edit_avatar, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :signed_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user,       only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
 
 
@@ -73,10 +73,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    def sign_in_user
-      redirect_to login_url, danger: "Please sign in." unless signed_in?
     end
 
     def correct_user
