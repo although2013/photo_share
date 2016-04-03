@@ -3,6 +3,10 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :destroy]
 
 
+  def index
+    @photos = Photo.all
+  end
+
   def new
     @photo = current_user.photos.new
   end
@@ -20,6 +24,8 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.id)
+    @like_count = $redis.scard("photo#{@photo.id}")
   end
 
   def destroy
