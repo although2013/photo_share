@@ -29,12 +29,14 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    if current_user == @photo.user_id
+    if current_user == @photo.user
       if @photo.destroy
         redirect_to photos_url
       else
         redirect_to root_url
       end
+    else
+      head status: 400
     end
   end
 

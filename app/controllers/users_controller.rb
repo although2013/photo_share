@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @photos = current_user.photos.all.limit(50)
   end
 
 

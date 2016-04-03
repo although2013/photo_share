@@ -1,6 +1,10 @@
-This is Home page
+<div class="home-page">
+  <h1>Hey</h1>
 
-<% if !current_user %>
-  <%= link_to '注册', new_user_path %>
-  <%= link_to '登录', new_session_path %>
-<% end -%>
+  <% if current_user %>
+    <p>你已经登录啦，快上传照片 <%= link_to 'Upload', new_photo_path %> </p>
+  <% else %>
+    <p>开始玩耍！<%= link_to '登录', new_session_path %></p>
+    <p>没有帐号？立即 <%= link_to '注册', new_user_path %> ！</p>
+  <% end -%>
+</div>

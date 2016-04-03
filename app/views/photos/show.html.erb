@@ -1,11 +1,11 @@
-<%= render 'shared/flash_error_messages', object: @photo %>
+<div><%= render 'shared/flash_messages' %></div>
 
 <div align="center" class="img-detail">
   <%= image_tag @photo.photo_url.to_s, class:"img-responsive" %>
   <button id="l-<%="photo#{@photo.id}"%>" class="photo-like" data-type="photo" data-id="<%= @photo.id %>"><%= @is_liked ? 'Unlike' : 'Like' %></button>
   <p id="like-count">Like Count <%= @like_count %></p>
 
-  <% if current_user?(@user) %>
+  <% if current_user?(@photo.user) %>
     <br><br>
     <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>

@@ -1,6 +1,6 @@
-<div>
-<h1>上传照片</h1>
-<%= render "shared/flash_error_messages", object: @photo %>
+<div class="img-upload">
+  <h3>上传照片</h3>
+  <%= render "shared/flash_error_messages", object: @photo %>
   <div class="form">
 
     <%= form_for @photo, :html => {:multipart => true} do |f| %>
@@ -9,7 +9,7 @@
       <%= f.label :name, '图片简介' %>:
       <%= f.text_field :name, :class => "form-control" %><br>
 
-      <%= f.submit "上 传", class: "btn btn-large btn-primary"%>
+      <%= f.submit "上传", class: "btn btn-large btn-primary"%>
     <% end %>
   </div>
 </div>
