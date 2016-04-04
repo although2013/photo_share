@@ -23,8 +23,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @randmember = $redis.srandmember("photo#{@photo.id}", 5)
-    #@is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
+    @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
     @like_count = $redis.scard("photo#{@photo.id}")
   end
 

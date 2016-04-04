@@ -3,13 +3,9 @@
 <div align="center" class="img-detail">
   <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive", data: {type: "photo", id: @photo.id} %>
 
-  <%
-    other_num = @like_count.to_i - @randmember.length
-    and_other = other_num > 0 ? "and other #{@like_count.to_i - @randmember.length} people " : ""
-  %>
-  <% if @like_count.to_i > 0 %>
-    <span><%= "#{@randmember.join(", ")} #{and_other}liked." %></span>
-  <% end %>
+  <span id="l-photo<%= @photo.id %>">
+    <%= "#{@like_count} 次赞" %>
+  </span>
 
 
   <% if current_user?(@photo.user) %>
