@@ -1,20 +1,5 @@
 <div class="container img-all">
-  <% @photos.each do |item| %>
 
-    <div class="img-box">
-      <a href='<%= photo_path(item) %>'>
-        <div class="img">
-          <%= image_tag(item.photo_url(:thumb).to_s) %>
-        </div>
-        <div class="info">
-          <% if !item.name.blank? %>
-            <p class="desc"><%= item.name %></p>
-          <% else %>
-            <p>&nbsp;</p>
-          <% end %>
-        </div>
-      </a>
-    </div>
+  <%= render @photos %>
 
-  <% end %>
 </div>

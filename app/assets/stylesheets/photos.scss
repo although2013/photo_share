@@ -1,4 +1,9 @@
+.center {
+  text-align: center;
+}
+
 .img-all {
+  width: 965px;
   img {
     width: 200px;
     height: 200px;
@@ -12,6 +17,9 @@
   .info {
     .desc {
       text-align: center;
+    }
+    .like-count {
+      float: right;
     }
   }
 }

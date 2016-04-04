@@ -1,0 +1,15 @@
+<div class="img-box">
+  <a href='<%= photo_path(photo) %>'>
+    <div class="img">
+      <%= image_tag(photo.photo_url(:thumb).to_s) %>
+    </div>
+  </a>
+  <div class="info">
+    <% if !photo.name.blank? %>
+      <span class="desc"><%= photo.name %></span>
+    <% else %>
+      <span>&nbsp;</span>
+    <% end %>
+    <span class="like-count"><%= $redis.scard("photo#{photo.id}") %>次赞</span>
+  </div>
+</div>

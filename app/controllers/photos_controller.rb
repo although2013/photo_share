@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
 
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.limit(100)
   end
 
   def new
@@ -15,7 +15,6 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.new(photo_params)
     if @photo.save
-      flash[:success] = '图片上传成功'
       redirect_to @photo
     else
       flash.now[:danger] = '图片上传失败'
@@ -24,7 +23,8 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.id)
+    @randmember = $redis.srandmember("photo#{@photo.id}", 5)
+    #@is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
     @like_count = $redis.scard("photo#{@photo.id}")
   end
 
