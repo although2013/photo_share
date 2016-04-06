@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  before_action :signed_in_user
 
   def create
     set = "#{params[:type]}#{params[:id]}"

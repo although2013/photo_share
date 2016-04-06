@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user, except: [:index]
   before_action :set_photo, only: [:show, :destroy]
 
 
