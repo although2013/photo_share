@@ -1,4 +1,4 @@
-source 'https://gems.ruby-china.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -7,6 +7,9 @@ gem 'mysql2', '~> 0.3.18'
 
 gem 'bootstrap-sass'
 gem 'bcrypt'
+
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 
 gem 'carrierwave'
 gem 'rmagick'
