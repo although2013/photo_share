@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
   def edit
   end
 
@@ -54,7 +53,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @user.destroy

@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   private
     def send_welcome_email
-      WelcomeMailer.signup_email(self).deliver_now
+      WelcomeEmailJob.perform_later(self)
     end
 
     def create_remember_token
