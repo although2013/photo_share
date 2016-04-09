@@ -1,0 +1,6 @@
+<% if @comment.errors.any? %>
+  $('.img-right .comments').append('<%= j render "shared/flash_error_messages", object: @comment %>')
+<% else %>
+  $('.img-right .comments').append('<%= j render "comments/comment", :comment => @comment %>')
+  $('#comment_body').val('')
+<% end %>

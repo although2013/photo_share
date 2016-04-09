@@ -24,6 +24,7 @@ class PhotosController < ApplicationController
   def show
     @photo    = Photo.find(params[:id])
     @comments = @photo.comments.includes(:user).all
+
     @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
     @like_count = $redis.scard("photo#{@photo.id}")
   end

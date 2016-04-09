@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
+
   def create
-    c = Comment.new(comment_params.merge(:user_id => current_user.id))
-    c.save
-    render :json => {}
+    @comment = Comment.new(comment_params.merge(:user_id => current_user.id))
+    @comment.save
+  end
+
+  def destroy
+
   end
 
 
