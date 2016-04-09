@@ -1,4 +1,8 @@
-<h3 class="center">我的所有照片</h3>
+<%= render "shared/flash_messages" %>
+
+<% the_user = current_user == @user ? '我的所有照片' : "#{@user.name} 的所有照片" %>
+
+<h3 class="center"><%= the_user %></h3>
 <div class="container img-all">
   <%= render @photos %>
 </div>

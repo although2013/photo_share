@@ -1,0 +1,9 @@
+<% new_comment = Comment.new(commentable_type: commentable.class.name, commentable_id: commentable.id) %>
+
+<%= form_for new_comment, :remote => true do |f| %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.hidden_field :commentable_id %>
+
+  <%= f.text_field :body, :class => "form-control", :placeholder => '评论' %>
+  <%= f.submit "Send", class: "btn btn-primary"%>
+<% end %>

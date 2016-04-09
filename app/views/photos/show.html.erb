@@ -1,17 +1,32 @@
 <div><%= render 'shared/flash_messages' %></div>
 
 <div align="center" class="img-detail">
-  <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive", data: {type: "photo", id: @photo.id} %>
+  <div class="img-left">
+    <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive", data: {type: "photo", id: @photo.id} %>
 
-  <span id="l-photo<%= @photo.id %>">
-    <%= "#{@like_count} 次赞" %>
-  </span>
+    <span id="l-photo<%= @photo.id %>">
+      <%= "#{@like_count} 次赞" %>
+    </span>
 
+    <% if current_user.id == @photo.user_id %>
+      <br><br>
+      <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
 
-  <% if current_user?(@photo.user) %>
-    <br><br>
-    <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <div class="img-right">
+    <div class="buttons">
+    </div>
+
+    <div class="comments">
+      <%= render @comments %>
+    </div>
+
+    <dir class="new-comment">
+      <%= render 'comments/form', :commentable => @photo %>
+    </dir>
+
+  </div>
 </div>
 
 

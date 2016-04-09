@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @photos = current_user.photos.all.limit(50)
+    @user = User.find(params[:id])
+    @photos = @user.photos.all.limit(50)
   end
 
 

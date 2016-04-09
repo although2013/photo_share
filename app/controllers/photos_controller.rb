@@ -1,6 +1,5 @@
 class PhotosController < ApplicationController
   before_action :signed_in_user, except: [:index]
-  before_action :set_photo, only: [:show, :destroy]
 
 
   def index
@@ -23,11 +22,14 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @photo    = Photo.find(params[:id])
+    @comments = @photo.comments.includes(:user).all
     @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
     @like_count = $redis.scard("photo#{@photo.id}")
   end
 
   def destroy
+    @photo = Photo.find(params[:id])
     if current_user == @photo.user
       if @photo.destroy
         redirect_to photos_url
@@ -42,10 +44,6 @@ class PhotosController < ApplicationController
   private
   def photo_params
     params.require(:photo).permit(:name, :photo, :user_id)
-  end
-
-  def set_photo
-    @photo = Photo.find(params[:id])
   end
   
 end
