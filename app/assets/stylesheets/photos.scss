@@ -18,7 +18,7 @@
     .desc {
       text-align: center;
     }
-    .like-count {
+    .counts {
       float: right;
     }
   }
@@ -27,15 +27,30 @@
 
 .img-detail {
   width: 1100px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 
   .img-left {
+    float: left;
     display: inline-block;
   }
 
   .img-right {
-    position: fixed;
     display: inline-block;
-    width: 250px;
+    width: 280px;
+
+    .buttons {
+      padding-left: 20px;
+    }
+
+    .comments {
+      padding-left: 20px;
+      margin-bottom: 10px;
+      .comment {
+        text-align: left;
+      }
+    }
 
     .new-comment {
       padding-left: 20px;
@@ -51,7 +66,32 @@
   }
 }
 
-
+.counts {
+  div#views {
+    display: inline-block;
+    min-width: 40px;
+    height: 30px;
+    color: #aab8c2;
+  }
+  div#likes {
+    display: inline-block;
+    min-width: 40px;
+    height: 30px;
+    *:focus {
+      outline:none;
+    }
+    .like-button {
+      background: transparent;
+      border-width: 0;
+    }
+    .like-button.liked {
+      color: #e81c4f;
+    }
+    .like-button.unliked {
+      color: #aab8c2;
+    }
+  }
+}
 
 
 

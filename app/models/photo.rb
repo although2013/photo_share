@@ -1,4 +1,8 @@
 class Photo < ActiveRecord::Base
+  include Redis::Objects
+  counter :hits
+  set  :likers
+
   belongs_to :user
   has_many :comments, :as => :commentable, dependent: :destroy
 

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rmagick'
 
 gem 'redis'
+gem 'redis-objects'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

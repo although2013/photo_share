@@ -1,12 +1,8 @@
-<div><%= render 'shared/flash_messages' %></div>
+<%= render 'shared/flash_messages' %>
 
-<div align="center" class="img-detail">
+<div class="img-detail">
   <div class="img-left">
-    <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive", data: {type: "photo", id: @photo.id} %>
-
-    <span id="l-photo<%= @photo.id %>">
-      <%= "#{@like_count} 次赞" %>
-    </span>
+    <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive" %>
 
     <% if current_user.id == @photo.user_id %>
       <br><br>
@@ -15,35 +11,18 @@
   </div>
 
   <div class="img-right">
+
     <div class="buttons">
+      <%= render "counts", photo: @photo %>
     </div>
 
     <div class="comments">
       <%= render @comments %>
     </div>
 
-    <dir class="new-comment">
+    <div class="new-comment">
       <%= render 'comments/form', :commentable => @photo %>
-    </dir>
+    </div>
 
   </div>
 </div>
-
-
-
-
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("img").dblclick(function() {
-      $.ajax({
-        url: '/likes',
-        type: 'post',
-        data: {type: this.dataset.type, id: this.dataset.id}
-      }).done(function(resp){
-        $('#l-' + resp.type + resp.id).text(resp.text)
-      });
-    });
-  });
-</script>

@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   before_action :signed_in_user, except: [:index]
 
-
   def index
     @photos = Photo.all.limit(100)
   end
@@ -25,8 +24,7 @@ class PhotosController < ApplicationController
     @photo    = Photo.find(params[:id])
     @comments = @photo.comments.includes(:user).all
 
-    @is_liked   = $redis.sismember("photo#{@photo.id}", current_user.name)
-    @like_count = $redis.scard("photo#{@photo.id}")
+    @photo.hits.increment
   end
 
   def destroy

@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :photos
   resources :comments
 
-
-
-  resources :likes, only: [:create]
+  post '/like',   to: 'likes#like',   as: 'like'
+  post '/unlike', to: 'likes#unlike', as: 'unlike'
 
 end

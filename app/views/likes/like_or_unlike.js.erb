@@ -1,0 +1,18 @@
+<%
+  if @is_liked
+    # he just liked this photo
+    add_css_class    = 'liked'
+    remove_css_class = 'unliked'
+    url  = '/unlike'
+  else
+    remove_css_class = 'liked'
+    add_css_class    = 'unliked'
+    url  = '/like'
+  end
+  selector = ".like-button##{@likeable.class.name}#{@likeable.id}"
+%>
+
+
+$('<%= selector %>').removeClass('<%= remove_css_class %>').addClass('<%= add_css_class %>')
+$('<%= selector %> #count').text('<%= @set.count if @set.count > 0 %>')
+$('<%= selector %>').parent('form').attr('action', '<%= url %>')
