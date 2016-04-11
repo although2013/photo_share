@@ -14,5 +14,5 @@
 
 
 $('<%= selector %>').removeClass('<%= remove_css_class %>').addClass('<%= add_css_class %>')
-$('<%= selector %> #count').text('<%= @set.count if @set.count > 0 %>')
+$('<%= selector %> #count').text('<%= @set.count %>')
 $('<%= selector %>').parent('form').attr('action', '<%= url %>')

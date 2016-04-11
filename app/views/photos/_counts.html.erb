@@ -8,7 +8,7 @@
     <% action = photo.likers.member?(current_user.id) ? 'unlike' : 'like' %>
     <%= button_to "/#{action}", class: "like-button #{liked}", id: "#{photo.class.name}#{photo.id}", method: :post, remote: true, params: {type: photo.class.name, id: photo.id} do %>
       <span class="glyphicon glyphicon-heart"></span>
-      <span id='count'><%= photo.likers.count if photo.likers.count > 0 %></span>
+      <span id='count'><%= photo.likers.count %></span>
     <% end %>
   </div>
 </div>
