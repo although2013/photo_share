@@ -48,6 +48,7 @@ group :development do
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma',   require: false
+  gem 'capistrano-sidekiq'
 
   gem 'pry'
 end
