@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :signed_in_user
+  before_filter :sign_in
   before_action :find_set_of_likeable
 
   def like
@@ -18,6 +18,15 @@ class LikesController < ApplicationController
   def find_set_of_likeable
     @likeable = params[:type].singularize.classify.constantize.find(params[:id])
     @set = @likeable.likers
+  end
+
+  def sign_in
+    unless current_user
+      store_location
+      flash[:warning] = "请先登录"
+      flash.keep(:warning)
+      render js: "window.location = '#{new_session_path}'"
+    end
   end
 
 end

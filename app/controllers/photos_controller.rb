@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :signed_in_user, except: [:index]
+  before_action :signed_in_user, except: [:index, :show]
 
   def index
     @photos = Photo.all.limit(100)

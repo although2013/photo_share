@@ -34,6 +34,18 @@
   .img-left {
     float: left;
     display: inline-block;
+    width: 800px;
+
+    img, a {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    a {
+      margin-top: 8px;
+      width: 80px;
+    }
   }
 
   .img-right {

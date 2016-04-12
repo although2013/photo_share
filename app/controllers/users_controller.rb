@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         render :edit_avatar
       else
         flash[:success] = "注册成功！"
-        redirect_to @user
+        redirect_back_or @user
       end
     else
       render :new
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         render :edit_avatar
       else
         flash[:success] = "修改成功！"
-        redirect_to @user
+        redirect_back_or @user
       end
     else
       flash[:danger] = "修改失败！"
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, success: 'User was successfully destroyed.' }
+      format.html { redirect_back_or users_url, success: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

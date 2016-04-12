@@ -2,10 +2,9 @@
 
 <div class="img-detail">
   <div class="img-left">
-    <%= image_tag @photo.photo_url(:detail).to_s, class:"img-responsive" %>
+    <%= image_tag @photo.photo_url(:detail).to_s %>
 
-    <% if current_user.id == @photo.user_id %>
-      <br><br>
+    <% if current_user.try(:id) == @photo.user_id %>
       <%= link_to '删除', @photo, class:'btn btn-danger' , method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </div>
