@@ -15,7 +15,7 @@ http://139.162.57.223/
 
 使用 `Capistrano` 实现自动部署到 Linode 服务器。
 
-Production 使用 `MySQL`, `Puma`, `Nginx`
+Production 使用 `MySQL`，`Puma`，`Nginx`
 
 # Screen Shot
 
